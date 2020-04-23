@@ -51,7 +51,7 @@ def start():
 def login(provider):
     #STEP 1 - Parse the auth code
     auth_code = request.json.get('auth_code')
-    print "Step 1 - Complete, received auth code %s" % auth_code
+    print(("Step 1 - Complete, received auth code %s" % auth_code))
     if provider == 'google':
         #STEP 2 - Exchange for a token
         try:
@@ -93,7 +93,7 @@ def login(provider):
         #     response = make_response(json.dumps('Current user is already connected.'), 200)
         #     response.headers['Content-Type'] = 'application/json'
         #     return response
-        print "Step 2 Complete! Access Token : %s " % credentials.access_token
+        print(("Step 2 Complete! Access Token : %s " % credentials.access_token))
 
         #STEP 3 - Find User or make a new one
         
@@ -145,11 +145,11 @@ def new_user():
     username = request.json.get('username')
     password = request.json.get('password')
     if username is None or password is None:
-        print "missing arguments"
+        print("missing arguments")
         abort(400) 
         
     if session.query(User).filter_by(username = username).first() is not None:
-        print "existing user"
+        print("existing user")
         user = session.query(User).filter_by(username=username).first()
         return jsonify({'message':'user already exists'}), 200#, {'Location': url_for('get_user', id = user.id, _external = True)}
         

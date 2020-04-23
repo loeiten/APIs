@@ -3,17 +3,17 @@ import json
 import sys
 
 
-print "Running Endpoint Tester....\n"
-address = raw_input("Please enter the address of the server you want to access, \n If left blank the connection will be set to 'http://localhost:5000':   ")
+print("Running Endpoint Tester....\n")
+address = eval(input("Please enter the address of the server you want to access, \n If left blank the connection will be set to 'http://localhost:5000':   "))
 if address == '':
 	address = 'http://localhost:5000'
 
 #GET AUTH CODE
 client_url = address + "/clientOAuth"
-print "Visit %s in your browser" % client_url
+print(("Visit %s in your browser" % client_url))
 auth_code = ""
 while auth_code == "":
-	auth_code = raw_input("Paste the One-Time Auth Code Here:")
+	auth_code = eval(input("Paste the One-Time Auth Code Here:"))
 
 #TEST ONE GET TOKEN
 try:
@@ -29,11 +29,11 @@ try:
 		raise Exception('No Token Received!')
 	token = new_content['token']
 except Exception as err:
-	print "Test 1 FAILED: Could not exchange auth code for a token"
-	print err.args
+	print("Test 1 FAILED: Could not exchange auth code for a token")
+	print((err.args))
 	sys.exit()
 else:
-	print "Test 1 PASS: Succesfully obtained token! "
+	print("Test 1 PASS: Succesfully obtained token! ")
 
 
 #ADD TO DB WITH TOKEN

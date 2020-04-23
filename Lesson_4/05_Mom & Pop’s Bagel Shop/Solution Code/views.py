@@ -17,13 +17,13 @@ app = Flask(__name__)
 
 @auth.verify_password
 def verify_password(username, password):
-    print "Looking for user %s" % username
+    print(("Looking for user %s" % username))
     user = session.query(User).filter_by(username = username).first()
     if not user: 
-        print "User not found"
+        print("User not found")
         return False
     elif not user.verify_password(password):
-        print "Unable to verify password"
+        print("Unable to verify password")
         return False
     else:
         g.user = user
@@ -35,12 +35,12 @@ def new_user():
     username = request.json.get('username')
     password = request.json.get('password')
     if username is None or password is None:
-        print "missing arguments"
+        print("missing arguments")
         abort(400) 
     
     user = session.query(User).filter_by(username=username).first()
     if user is not None:
-        print "existing user"
+        print("existing user")
         return jsonify({'message':'user already exists'}), 200#, {'Location': url_for('get_user', id = user.id, _external = True)}
         
     user = User(username = username)

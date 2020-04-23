@@ -6,37 +6,42 @@ app = Flask(__name__)
 
 def puppiesFunction():
   if request.method == 'GET':
+    pass
   	#Call the method to Get all of the puppies
-  	
-  
+
+
   elif request.method == 'POST':
+    pass
   	#Call the method to make a new puppy
-  
-  
- 
-#Make another app.route() decorator here that takes in an integer id in the 
+
+
+
+#Make another app.route() decorator here that takes in an integer id in the
 
 def puppiesFunctionId(id):
   if request.method == 'GET':
+    pass
   	#Call the method to get a specific puppy based on their id
-  	
+
   if request.method == 'PUT':
+    pass
   	#Call the method to update a puppy
-  	
+
   elif request.method == 'DELETE':
+    pass
   	#Call the method to remove a puppy
-  	
+
 
 
 def getAllPuppies():
   return "Getting All the puppies!"
-  
+
 def makeANewPuppy():
   return "Creating A New Puppy!"
 
 def getPuppy(id):
 	return "Getting Puppy with id %s" % id
-	
+
 def updatePuppy(id):
   return "Updating a Puppy with id %s" % id
 

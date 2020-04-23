@@ -44,12 +44,12 @@ def findARestaurant(mealType,location):
 			imageURL = "http://pixabay.com/get/8926af5eb597ca51ca4c/1433440765/cheeseburger-34314_1280.png?direct"
 		#7.  return a dictionary containing the restaurant name, address, and image url
 		restaurantInfo = {'name':restaurant_name, 'address':restaurant_address, 'image':imageURL}
-		print "Restaurant Name: %s" % restaurantInfo['name']
-		print "Restaurant Address: %s" % restaurantInfo['address']
-		print "Image: %s \n" % restaurantInfo['image']
+		print(("Restaurant Name: %s" % restaurantInfo['name']))
+		print(("Restaurant Address: %s" % restaurantInfo['address']))
+		print(("Image: %s \n" % restaurantInfo['image']))
 		return restaurantInfo
 	else:
-		print "No Restaurants Found for %s" % location
+		print(("No Restaurants Found for %s" % location))
 		return "No Restaurants Found"
 
 if __name__ == '__main__':

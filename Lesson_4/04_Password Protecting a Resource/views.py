@@ -29,11 +29,11 @@ def new_user():
     username = request.json.get('username')
     password = request.json.get('password')
     if username is None or password is None:
-        print "missing arguments"
+        print("missing arguments")
         abort(400) 
         
     if session.query(User).filter_by(username = username).first() is not None:
-        print "existing user"
+        print("existing user")
         user = session.query(User).filter_by(username=username).first()
         return jsonify({'message':'user already exists'}), 200#, {'Location': url_for('get_user', id = user.id, _external = True)}
         

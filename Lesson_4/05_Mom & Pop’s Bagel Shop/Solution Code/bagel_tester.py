@@ -1,12 +1,12 @@
-from urllib import urlencode
+from urllib.parse import urlencode
 from httplib2 import Http
 import json
 import sys
 import base64
 
 
-print "Running Endpoint Tester....\n"
-address = raw_input("Please enter the address of the server you want to access, \n If left blank the connection will be set to 'http://localhost:5000':   ")
+print("Running Endpoint Tester....\n")
+address = eval(input("Please enter the address of the server you want to access, \n If left blank the connection will be set to 'http://localhost:5000':   "))
 if address == '':
 	address = 'http://localhost:5000'
 
@@ -23,11 +23,11 @@ try:
 	if resp['status'] != '201' and resp['status'] != '200':
  		raise Exception('Received an unsuccessful status code of %s' % resp['status'])
 except Exception as err:
-	print "Test 1 FAILED: Could not make a new user"
-	print err.args
+	print("Test 1 FAILED: Could not make a new user")
+	print((err.args))
 	sys.exit()
 else:
-	print "Test 1 PASS: Succesfully made a new user"
+	print("Test 1 PASS: Succesfully made a new user")
 
 #TEST 2 ADD NEW BAGELS TO THE DATABASE
 try:
@@ -39,11 +39,11 @@ try:
 	if resp['status'] != '200':
 		raise Exception('Received an unsuccessful status code of %s' % resp['status'])
 except Exception as err:
-	print "Test 2 FAILED: Could not add new bagels"
-	print err.args
+	print("Test 2 FAILED: Could not add new bagels")
+	print((err.args))
 	sys.exit()
 else:
-	print "Test 2 PASS: Succesfully made new bagels"
+	print("Test 2 PASS: Succesfully made new bagels")
 
 
 #TEST 3 TRY TO READ BAGELS WITH INVALID CREDENTIALS
@@ -56,11 +56,11 @@ try:
 	if resp['status'] == '200':
 		raise Exception("Security Flaw: able to log in with invalid credentials")
 except Exception as err:
-	print "Test 3 FAILED"
-	print err.args
+	print("Test 3 FAILED")
+	print((err.args))
 	sys.exit()
 else:
-	print "Test 3 PASS: App checks against invalid credentials"
+	print("Test 3 PASS: App checks against invalid credentials")
 
 
 #TEST 4 TRY TO READ BAGELS WITH VALID CREDENTIALS
@@ -73,9 +73,9 @@ try:
 	if resp['status'] != '200':
 		raise Exception("Unable to access /bagels with valid credentials")
 except Exception as err:
-	print "Test 4 FAILED"
-	print err.args
+	print("Test 4 FAILED")
+	print((err.args))
 	sys.exit()
 else:
-	print "Test 4 PASS: Logged in User can view /bagels"
-	print "ALL TESTS PASSED!"
+	print("Test 4 PASS: Logged in User can view /bagels")
+	print("ALL TESTS PASSED!")

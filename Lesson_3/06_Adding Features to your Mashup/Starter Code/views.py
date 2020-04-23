@@ -28,10 +28,12 @@ app = Flask(__name__)
 
 @app.route('/restaurants', methods = ['GET', 'POST'])
 def all_restaurants_handler():
+    pass
   #YOUR CODE HERE
-    
+
 @app.route('/restaurants/<int:id>', methods = ['GET','PUT', 'DELETE'])
 def restaurant_handler(id):
+    pass
   #YOUR CODE HERE
 
 if __name__ == '__main__':
@@ -39,4 +41,4 @@ if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
 
 
-  
+
